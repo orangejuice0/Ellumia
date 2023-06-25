@@ -126,6 +126,7 @@
 -define:MODULE_PARTICLE_SYSTEM_EXISTS
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/sql/Mono.Data.Sqlite.dll"
 -r:"E:/unity editors/2022.2.7f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"E:/unity editors/2022.2.7f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"E:/unity editors/2022.2.7f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
