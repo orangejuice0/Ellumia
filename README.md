@@ -1,2 +1,2 @@
 # Ellumia
-The repo for the development of th Ellumia app
+The repository for the development of the Ellumia app
