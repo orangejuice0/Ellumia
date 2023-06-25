@@ -402,6 +402,8 @@
 "Assets/LeanTween/Testing/TestingSequencer.cs"
 "Assets/Scripts/AccountsButtons.cs"
 "Assets/Scripts/SqlHandler.cs"
+"Assets/Scripts/UIBaseStats.cs"
+"Assets/Scripts/UICharacterStats.cs"
 "Assets/Scripts/UIHandler.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets\LeanTween\Testing\TestingOptionalCancel.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+     <Compile Include="Assets\Scripts\UICharacterStats.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
@@ -76,8 +77,8 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
      <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
-     <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingSequencer.cs" />
@@ -101,6 +102,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+     <Compile Include="Assets\Scripts\UIBaseStats.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
@@ -401,11 +403,11 @@
     <Reference Include="ReportGeneratorMerged">
         <HintPath>C:\Users\Ollie\OneDrive\Documents\GitHub\Ellumia\Ellumia\EllumiaApp\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>C:\Users\Ollie\OneDrive\Documents\GitHub\Ellumia\Ellumia\EllumiaApp\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Data.Sqlite">
         <HintPath>C:\Users\Ollie\OneDrive\Documents\GitHub\Ellumia\Ellumia\EllumiaApp\Assets\sql\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+        <HintPath>C:\Users\Ollie\OneDrive\Documents\GitHub\Ellumia\Ellumia\EllumiaApp\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>E:\unity editors\2022.2.7f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

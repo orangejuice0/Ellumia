@@ -16,7 +16,7 @@ public class SqlHandler : MonoBehaviour
     private bool RanAlertAnimation = false;
 
     [SerializeField] private GameObject AlertObject;
-    [SerializeField]private UIHandler UIhandler;
+    [SerializeField] private UIHandler UIhandler;
 
     void Update()
     {
@@ -45,7 +45,7 @@ public class SqlHandler : MonoBehaviour
     {
         int pid = getnextplayerid();
         LocalPlayerID = pid + 1;
-        string query = "INSERT INTO BaseStats (PlayerID,PlayerName) VALUES(" + LocalPlayerID + ",'" + PlayerName + "')";
+        string query = "INSERT INTO BaseStats (PlayerID,PlayerName,PlayerLevel) VALUES(" + LocalPlayerID + ",'" + PlayerName + "',1)";
         InputSql(query);
         UIhandler.LoggedOn();
     }
@@ -57,6 +57,11 @@ public class SqlHandler : MonoBehaviour
         return nid;
     }
 
+    public int GetLocalPlayerID()
+    {
+        return LocalPlayerID;
+    }
+
     public void login(string PlayerName)
     {
         string query = "SELECT PlayerID FROM BaseStats WHERE PlayerName='" + PlayerName + "'";
@@ -66,14 +71,15 @@ public class SqlHandler : MonoBehaviour
         }
         catch (Exception e)
         {
-            SendAlert("Can't fing Player: " + PlayerName);
+            SendAlert("Can't find Player: " + PlayerName);
         }
-        if(LocalPlayerID!=0){
+        if (LocalPlayerID != 0)
+        {
             UIhandler.LoggedOn();
         }
     }
 
-    private void InputSql(string ExecutingString)
+    public void InputSql(string ExecutingString)
     {
         using (var connection = new SqliteConnection(dbName))
         {
@@ -87,7 +93,7 @@ public class SqlHandler : MonoBehaviour
         }
     }
 
-    private int SearchSqlInt(string ExecutingString)
+    public int SearchSqlInt(string ExecutingString)
     {
         int output = 0;
         using (var connection = new SqliteConnection(dbName))
@@ -98,7 +104,50 @@ public class SqlHandler : MonoBehaviour
                 command.CommandText = ExecutingString;
                 using (IDataReader reader = command.ExecuteReader())
                 {
-                    output = (int)(reader[0]);
+                    if (reader[0] != null)
+                    {
+                        try
+                        {
+                            int x = (int)reader[0];
+                        }
+                        catch (Exception e)
+                        {
+                            return 0;
+                        }
+                        output = (int)(reader[0]);
+
+
+                    }
+                    else
+                    {
+                        output = 0;
+                    }
+
+                }
+            }
+            connection.Close();
+        }
+        return output;
+    }
+
+    public string SearchSqlString(string ExecutingString)
+    {
+        string output = " ";
+        using (var connection = new SqliteConnection(dbName))
+        {
+            connection.Open();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = ExecutingString;
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    try{
+                        string x =(string)(reader[0]);
+                    }
+                    catch(Exception e){
+                        return ("");
+                    }
+                    output = (string)(reader[0]);
                 }
             }
             connection.Close();
