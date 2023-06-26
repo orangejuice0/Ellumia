@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UICharacterStats : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class UICharacterStats : MonoBehaviour
     [SerializeField] private GameObject Level;
     [SerializeField] private GameObject PlayerRace;
     [SerializeField] private GameObject PlayerBG;
-    private int LocalPlayerID, level;
+    [SerializeField] private GameObject PlayerCP;
+    [SerializeField] private GameObject PlayerSpeed;
+    [SerializeField] private GameObject PlayerAC;
+    private int LocalPlayerID, level, playercp, playerspeed, playerac;
     private string playername, playerrace, playerbg;
 
     private void Awake()
@@ -43,7 +47,12 @@ public class UICharacterStats : MonoBehaviour
         {
             PlayerBG.GetComponentInChildren<TMP_Text>().text = playerbg;
         }
-
+        playercp = sqlhandler.SearchSqlInt("SELECT PlayerCP FROM BaseStats WHERE PlayerID =" + LocalPlayerID);
+        PlayerCP.GetComponentInChildren<TMP_InputField>().text = "" + playercp;
+        playerspeed = sqlhandler.SearchSqlInt("SELECT PlayerSpeed FROM BaseStats WHERE PlayerID =" + LocalPlayerID);
+        PlayerSpeed.GetComponentInChildren<TMP_InputField>().text = "" + playerspeed+"ft";
+        playerac = sqlhandler.SearchSqlInt("SELECT PlayerAC FROM BaseStats WHERE PlayerID =" + LocalPlayerID);
+        PlayerAC.GetComponentInChildren<TMP_InputField>().text = "" + playerac;
     }
 
     private void SetLevel()
@@ -69,6 +78,48 @@ public class UICharacterStats : MonoBehaviour
             string query = ("UPDATE BaseStats SET PlayerBackground ='" + Stat + "' WHERE PlayerID = " + LocalPlayerID);
             sqlhandler.InputSql(query);
         }
+    }
 
+    public void OnChangeCP(string input)
+    {
+        try
+        {
+            playercp = int.Parse(input);
+            PlayerCP.GetComponentInChildren<TMP_InputField>().text = "" + playercp;
+            string query = ("UPDATE BaseStats SET PlayerCP =" + playercp + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("CP must be an integer");
+        }
+    }
+    public void OnChangeSpeed(string input)
+    {
+        try
+        {
+            playerspeed = int.Parse(input);
+            PlayerSpeed.GetComponentInChildren<TMP_InputField>().text = "" + playerspeed+"ft";
+            string query = ("UPDATE BaseStats SET PlayerSpeed =" + playerspeed + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Speed must be an integer");
+        }
+    }
+    public void OnChangeAC(string input)
+    {
+        try
+        {
+            playerac = int.Parse(input);
+            PlayerAC.GetComponentInChildren<TMP_InputField>().text = "" + playerac;
+            string query = ("UPDATE BaseStats SET PlayerAC =" + playerac + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("AC must be an integer");
+        }
     }
 }

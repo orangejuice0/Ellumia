@@ -401,6 +401,7 @@
 "Assets/LeanTween/Testing/TestingSceneSwitching.cs"
 "Assets/LeanTween/Testing/TestingSequencer.cs"
 "Assets/Scripts/AccountsButtons.cs"
+"Assets/Scripts/HealthHandler.cs"
 "Assets/Scripts/SqlHandler.cs"
 "Assets/Scripts/UIBaseStats.cs"
 "Assets/Scripts/UICharacterStats.cs"

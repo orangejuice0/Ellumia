@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UIBaseStats : MonoBehaviour
 {
@@ -40,37 +41,86 @@ public class UIBaseStats : MonoBehaviour
 
     public void UpdateCha(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Cha =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Cha =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Cha must be an intger");
+        }
+
     }
 
     public void UpdateCon(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Con =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Con =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Con must be an intger");
+        }
     }
 
     public void UpdateDex(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Dex =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Dex =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Dex must be an intger");
+        }
     }
 
     public void UpdateInt(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Int =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Int =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Int must be an intger");
+        }
     }
 
     public void UpdateStr(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Str =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Str =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Str must be an intger");
+        }
     }
 
     public void UpdateWis(string Stat)
     {
-        string query = ("UPDATE BaseStats SET Wis =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
-        sqlhandler.InputSql(query);
+        try
+        {
+            int tempStat = int.Parse(Stat);
+            string query = ("UPDATE BaseStats SET Wis =" + Stat + " WHERE PlayerID = " + LocalPlayerID);
+            sqlhandler.InputSql(query);
+        }
+        catch (Exception e)
+        {
+            sqlhandler.SendAlert("Wis must be an intger");
+        }
     }
 }

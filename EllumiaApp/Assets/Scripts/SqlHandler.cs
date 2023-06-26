@@ -47,6 +47,8 @@ public class SqlHandler : MonoBehaviour
         LocalPlayerID = pid + 1;
         string query = "INSERT INTO BaseStats (PlayerID,PlayerName,PlayerLevel) VALUES(" + LocalPlayerID + ",'" + PlayerName + "',1)";
         InputSql(query);
+        query = "INSERT INTO EquippedSlots (PlayerID) VALUES("+LocalPlayerID+")";
+        InputSql(query);
         UIhandler.LoggedOn();
     }
 
@@ -76,6 +78,9 @@ public class SqlHandler : MonoBehaviour
         if (LocalPlayerID != 0)
         {
             UIhandler.LoggedOn();
+        }
+        else{
+            SendAlert("Can't find Player: " + PlayerName);
         }
     }
 
@@ -171,5 +176,8 @@ public class SqlHandler : MonoBehaviour
             AlertTimerCurrentTime = AlertTimerMaxTime;
             CountDownAlertTimer = true;
         }
+    }
+    public void CloseAlert(){
+        AlertTimerCurrentTime=1;
     }
 }
